@@ -66,6 +66,7 @@ def report_get_data(server='localhost'):
         domains[domain]['users'].update(user_dict)
         domains[domain]['used'] += int(used)
         domains[domain]['used_str'] = size_suffix(domains[domain]['used'])
+        domains[domain]['quota_sum'] += int(quota)
 
     return domains
 
@@ -92,8 +93,9 @@ def report_generate(report_output, domains, domains_only=False):
                 report.writelines(", %s, %s, %s\n" %
                                   (user, user_data['quota_str'],
                                    user_data['used_str']))
-                report.writelines(", , Total, %s\n" %
-                                  domains[domain]['used_str'])
+            report.writelines(", Totals, %s, %s\n" % (
+                            size_suffix(domains[domain]['quota_sum']),
+                            domains[domain]['used_str']))
 
     report.close()
 
