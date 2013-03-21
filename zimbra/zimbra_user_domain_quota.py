@@ -53,7 +53,9 @@ def report_get_data(server='localhost'):
         if domain not in domains:
             domains.update({domain: {
                         'users': {},
-                        'used': 0
+                        'used': 0,
+                        'used_str': '',
+                        'quota_sum': ''
                         }})
 
         user_dict = {user: {
