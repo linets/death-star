@@ -55,7 +55,7 @@ def report_get_data(server='localhost'):
                         'users': {},
                         'used': 0,
                         'used_str': '',
-                        'quota_sum': ''
+                        'quota_sum': 0
                         }})
 
         user_dict = {user: {
